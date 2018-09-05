@@ -304,7 +304,7 @@ function sendEmailAuthenticate(to) {
     for (index = 0; index < x.length; ++index) {
         file = document.getElementById(x[index]).value;
         var hashInBase64 = createHmac(to, file);
-        sendFile += "- <a class=\"ulink\" href=\"https://cognito.powerupcloud.com/authenticated.html?auth=true&bucketname=" + bucket + "&key=" + file + "&user=" + to + "&hash=" + hashInBase64 + "\" target=\"_blank\">" + file + "</a><br>"
+        sendFile += "- <a class=\"ulink\" href=\"https://apache.awsdemo.com/authenticated.html?auth=true&bucketname=" + bucket + "&key=" + file + "&user=" + to + "&hash=" + hashInBase64 + "\" target=\"_blank\">" + file + "</a><br>"
         console.log(sendFile)
     }
     AWS.config.region = awsConfig.regionName;
@@ -343,7 +343,7 @@ function sendEmailUnauthenticate(to) {
     for (index = 0; index < x.length; ++index) {
         file = document.getElementById(x[index]).value;
         var hashInBase64 = createHmac(to, file);
-        sendFile += "- <a class=\"ulink\" href=\"https://cognito.powerupcloud.com/authenticated.html?auth=false&bucketname=" + bucket + "&key=" + file + "&user=" + to + "&hash=" + hashInBase64 + "\" target=\"_blank\">" + file + "</a><br>"
+        sendFile += "- <a class=\"ulink\" href=\"https://apache.awsdemo.com/authenticated.html?auth=false&bucketname=" + bucket + "&key=" + file + "&user=" + to + "&hash=" + hashInBase64 + "\" target=\"_blank\">" + file + "</a><br>"
     }
     var ses = new AWS.SES({
         params: {
@@ -364,7 +364,7 @@ function sendEmailUnauthenticate(to) {
                     Data: "Download the File"
                 }
             },
-            Source: "powerops@powerupcloud.com"
+            Source: "admin@awsdemo.com"
         }
     });
     ses.sendEmail({}, function(err, data) {
